@@ -1,59 +1,381 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PHP_Laravel12_Change_Date_Formate
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
+  <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white" />
+  <img src="https://img.shields.io/badge/Carbon-Date%20Handling-00C853?style=for-the-badge&logo=laravel&logoColor=white" />
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Beginner-Friendly-Yes-4CAF50?style=for-the-badge" />
 </p>
 
-## About Laravel
+## Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project demonstrates how to **change and convert date formats in Laravel 12** using **Carbon** and **Eloquent models**.
+It is written in a simple, step-by-step manner and is ideal for beginners who want to understand date handling in Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The project includes:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Laravel 12 installation steps
+* Database configuration
+* Sample user data insertion
+* Multiple date format conversion examples
+* Full controller and route code
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Laravel 12 compatible
+* Uses Carbon for date and time handling
+* Covers common date format conversions
+* Beginner-friendly examples
+* Copy-paste ready code
+* Suitable for learning and interviews
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Folder Structure
 
-### Premium Partners
+```
+laravel12/
+├── app/
+│   └── Http/
+│       └── Controllers/
+│           └── DemoController.php
+├── routes/
+│   └── web.php
+├── database/
+│   └── migrations/
+├── .env
+└── README.md
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Step 1: Install Laravel 12
 
-## Code of Conduct
+Create a new Laravel project:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+composer create-project laravel/laravel laravel12
+```
 
-## Security Vulnerabilities
+Run the development server:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan serve
+```
 
-## License
+Open in browser:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## Step 2: Database Configuration
+
+Update the `.env` file:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Run migrations:
+
+```bash
+php artisan migrate
+```
+
+---
+
+## Step 3: Insert Sample User Data
+
+Run Tinker:
+
+```bash
+php artisan tinker
+```
+
+```php
+\App\Models\User::create([
+    'name' => 'Demo User',
+    'email' => 'demo@gmail.com',
+    'password' => bcrypt('123456')
+]);
+```
+
+---
+
+## Step 4: Controller
+
+### 4.1 Create Controller
+
+```bash
+php artisan make:controller DemoController
+```
+
+---
+
+## Example 1: Change Date Format Using Model (created_at)
+
+### Controller
+
+`app/Http/Controllers/DemoController.php`
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+
+class DemoController extends Controller
+{
+    // Change date format using Eloquent model created_at
+    public function index()
+    {
+        $user = User::first();
+        $newDate = $user->created_at->format('d-m-Y');
+        dd($newDate);
+    }
+}
+```
+
+### Route
+
+```php
+Route::get('/date1', [DemoController::class, 'index']);
+```
+
+**Output**
+
+```
+06-01-2026
+```
+
+---
+
+## Example 2: Convert Y-m-d H:i:s to m/d/Y
+
+### Controller
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Carbon;
+
+class DemoController extends Controller
+{
+    // Convert Y-m-d H:i:s to m/d/Y format
+    public function index()
+    {
+        $date = date('Y-m-d H:i:s');
+        $newDate = Carbon::createFromFormat('Y-m-d H:i:s', $date)
+                        ->format('m/d/Y');
+        dd($newDate);
+    }
+}
+```
+
+### Route
+
+```php
+Route::get('/example2', [DemoController::class, 'index']);
+```
+
+**Output**
+
+```
+01/07/2026
+```
+
+---
+
+## Example 3: Convert Y-m-d to m/d/Y
+
+### Controller
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Carbon;
+
+class DemoController extends Controller
+{
+    // Convert Y-m-d to m/d/Y format
+    public function index()
+    {
+        $date = "2024-03-24";
+        $newDate = Carbon::createFromFormat('Y-m-d', $date)
+                        ->format('m/d/Y');
+        dd($newDate);
+    }
+}
+```
+
+### Route
+
+```php
+Route::get('/example3', [DemoController::class, 'index']);
+```
+
+**Output**
+
+```
+03/24/2024
+```
+
+---
+
+## Example 4: Convert m/d/Y to Y-m-d
+
+### Controller
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Carbon;
+
+class DemoController extends Controller
+{
+    // Convert m/d/Y to Y-m-d format
+    public function index()
+    {
+        $date = "03/24/2024";
+        $newDate = Carbon::createFromFormat('m/d/Y', $date)
+                        ->format('Y-m-d');
+        dd($newDate);
+    }
+}
+```
+
+### Route
+
+```php
+Route::get('/example4', [DemoController::class, 'index']);
+```
+
+**Output**
+
+```
+2024-03-24
+```
+
+---
+
+## Example 5: Convert Y-m-d to d/m/Y
+
+### Controller
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Carbon;
+
+class DemoController extends Controller
+{
+    // Convert Y-m-d to d/m/Y format
+    public function index()
+    {
+        $date = "2024-03-24";
+        $newDate = Carbon::createFromFormat('Y-m-d', $date)
+                        ->format('d/m/Y');
+        dd($newDate);
+    }
+}
+```
+
+### Route
+
+```php
+Route::get('/example5', [DemoController::class, 'index']);
+```
+
+**Output**
+
+```
+24/03/2024
+```
+
+---
+
+## Full Controller Code (All Examples)
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+
+class DemoController extends Controller
+{
+    // Handle all date format examples using single index method
+    public function index(Request $request)
+    {
+        $path = $request->path();
+
+        if ($path === 'date1') {
+            $user = User::first();
+            dd($user->created_at->format('d-m-Y'));
+        }
+
+        if ($path === 'example2') {
+            $date = date('Y-m-d H:i:s');
+            dd(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('m/d/Y'));
+        }
+
+        if ($path === 'example3') {
+            dd(Carbon::createFromFormat('Y-m-d', '2024-03-24')->format('m/d/Y'));
+        }
+
+        if ($path === 'example4') {
+            dd(Carbon::createFromFormat('m/d/Y', '03/24/2024')->format('Y-m-d'));
+        }
+
+        if ($path === 'example5') {
+            dd(Carbon::createFromFormat('Y-m-d', '2024-03-24')->format('d/m/Y'));
+        }
+
+        abort(404);
+    }
+}
+```
+
+---
+
+## Full Routes
+
+`routes/web.php`
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemoController;
+
+Route::get('/date1', [DemoController::class, 'index']);
+Route::get('/example2', [DemoController::class, 'index']);
+Route::get('/example3', [DemoController::class, 'index']);
+Route::get('/example4', [DemoController::class, 'index']);
+Route::get('/example5', [DemoController::class, 'index']);
+```
