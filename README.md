@@ -161,6 +161,7 @@ Route::get('/date1', [DemoController::class, 'index']);
 ```
 06-01-2026
 ```
+<img width="432" height="108" alt="Screenshot 2026-01-07 130810" src="https://github.com/user-attachments/assets/a7a69399-ca2d-413d-a35c-49db01fe898d" />
 
 ---
 
@@ -199,6 +200,7 @@ Route::get('/example2', [DemoController::class, 'index']);
 ```
 01/07/2026
 ```
+<img width="469" height="113" alt="Screenshot 2026-01-07 130957" src="https://github.com/user-attachments/assets/4eefa9b2-54c0-4f57-b206-4cfa9af89fa7" />
 
 ---
 
@@ -237,6 +239,7 @@ Route::get('/example3', [DemoController::class, 'index']);
 ```
 03/24/2024
 ```
+<img width="467" height="115" alt="Screenshot 2026-01-07 131039" src="https://github.com/user-attachments/assets/51b3148e-6b72-463d-be32-7b29484f981f" />
 
 ---
 
@@ -275,6 +278,7 @@ Route::get('/example4', [DemoController::class, 'index']);
 ```
 2024-03-24
 ```
+<img width="460" height="127" alt="Screenshot 2026-01-07 131056" src="https://github.com/user-attachments/assets/1c49ba66-53c0-433c-a7b3-fee2c057ac53" />
 
 ---
 
@@ -313,6 +317,7 @@ Route::get('/example5', [DemoController::class, 'index']);
 ```
 24/03/2024
 ```
+<img width="499" height="124" alt="Screenshot 2026-01-07 131115" src="https://github.com/user-attachments/assets/fb7ef7de-5905-413a-a149-cd8f5a7bde95" />
 
 ---
 
